@@ -49,8 +49,8 @@ const addActiveClass = function(isIn,section)  {
 const sectionIn = function()  {
     //know the section position
     mySection.forEach(section => {
-        const elementOffSet = offSet(section);
-        const inViewPort =  () => elementOffSet < 350 && elementOffSet >= -350; //start-up calc sections where start and end
+        const elemOffSet = offSet(section);
+        const inViewPort =  () => elemOffSet < 350 && elemOffSet >= -350; //start-up calc sections where start and end
         removeActiveClass(section);
         addActiveClass(inViewPort(),section);
     });
