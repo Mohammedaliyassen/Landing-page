@@ -23,14 +23,14 @@ body {
 h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
-    margin: 2em 1rem;
     display: block;
+    margin: 5em 1rem 0;
 }
 
 @media only screen and (min-width: 35em){
     h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
+        font-size: 5em;
+        margin: 2em 4rem 0em;
     }
 }
 
