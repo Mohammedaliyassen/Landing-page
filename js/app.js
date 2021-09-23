@@ -13,7 +13,7 @@ newLi.innerHTML='<a href="#home" style="color:#FFF;text-decoration: none; "> Hom
 newLi.style.cssText='background-color:rgba(0,15,60,.8); height:30;width:100; margin : 20px 10px;padding:5px; color:#000;text-align:center;border-radius: 0 20px ; ';
 
 //append Li element to Ul element
-newUl.appendChild(newLi.cloneNode(true));
+//newUl.appendChild(newLi.cloneNode(true));
 
 //create sections equal to their number 
 const fatherOfSection = document.getElementById('main');
@@ -22,7 +22,7 @@ let mySection = fatherOfSection.querySelectorAll('section');
 //cloning secions
 for(let i = 1; i <= mySection.length; i++ ){
     //add 'a' html Element every time
-    newLi.innerHTML='<a href="#section' + [i]+' data-nav="section"'+[i]+' style="color:#FFF;text-decoration: none;"> Section '+[i]+'</a>';
+    newLi.innerHTML='<a href="#section' + [i]+'" data-nav="section'+[i]+'"  style="color:#FFF;text-decoration: none;"> Section '+[i]+'</a>';
     newUl.appendChild(newLi.cloneNode(true));
 }
 
@@ -49,8 +49,8 @@ const addActiveClass = function(isIn,section)  {
 const sectionIn = function()  {
     //know the section position
     mySection.forEach(section => {
-        const elemOffSet = offSet(section);
-        const inViewPort =  () => elemOffSet < 350 && elemOffSet >= -350; //start-up calc sections where start and end
+        const elementOffSet = offSet(section);
+        const inViewPort =  () => elementOffSet < 350 && elementOffSet >= -350; //start-up calc sections where start and end
         removeActiveClass(section);
         addActiveClass(inViewPort(),section);
     });
@@ -60,14 +60,15 @@ window.addEventListener('scroll', sectionIn);
 
 newUl.addEventListener('click' ,(event) => { 
     event.preventDefault();
-    if(event.target.dataset.nav){
+    if 
+        (event.target.dataset.nav){
         document.getElementById(`${event.target.dataset.nav}`).scrollIntoView({behavior:"smooth"});
         setTimeout(()=>{
             location.hash = `${event.target.dataset.nav}`;
         },400);
     }
     
-} );
+});
 
 
 
