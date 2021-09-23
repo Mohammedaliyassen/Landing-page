@@ -22,7 +22,7 @@ let mySection = fatherOfSection.querySelectorAll('section');
 //cloning secions
 for(let i = 1; i <= mySection.length; i++ ){
     //add 'a' html Element every time
-    newLi.innerHTML='<a href="#section' + [i]+' data-nav="section" style="color:#FFF;text-decoration: none;"> Section '+[i]+'</a>';
+    newLi.innerHTML='<a href="#section' + [i]+' data-nav="section"'+[i]+' style="color:#FFF;text-decoration: none;"> Section '+[i]+'</a>';
     newUl.appendChild(newLi.cloneNode(true));
 }
 
