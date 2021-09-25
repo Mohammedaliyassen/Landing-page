@@ -57,7 +57,7 @@ const sectionIn = function()  {
 }
 //event listener for window
 window.addEventListener('scroll', sectionIn);
-
+//scroll smooth
 newUl.addEventListener('click' ,(event) => { 
     event.preventDefault();
     if 
