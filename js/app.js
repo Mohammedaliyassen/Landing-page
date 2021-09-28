@@ -41,7 +41,7 @@ const sectionIn = function()  {
     //know the section position
     mySection.forEach(section => {
     //start-up calc sections where start and end
-        const inViewPort =  () => isInViwe(section) < 900 && isInViwe(section) >= 500; 
+        const inViewPort =  () => isInViwe(section) < 1200 && isInViwe(section) >= 600; 
         myActiveClass(inViewPort(),section);
     });
 }
