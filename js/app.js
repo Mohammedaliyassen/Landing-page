@@ -12,9 +12,6 @@ let newLi = document.createElement('li');
 newLi.innerHTML='<a href="#home" style="color:#FFF;text-decoration: none; "> Home </a>';
 newLi.style.cssText='background-color:rgba(0,15,60,.8); height:30;width:100; margin : 20px 10px;padding:5px; color:#000;text-align:center;border-radius: 0 20px ; ';
 
-//append Li element to Ul element
-//newUl.appendChild(newLi.cloneNode(true));
-
 //create sections equal to their number 
 const fatherOfSection = document.getElementById('main');
 
@@ -27,42 +24,36 @@ for(let i = 1; i <= mySection.length; i++ ){
 }
 
 //calc the size and position for secion
-const offSet = function (section) {
-    return Math.floor(section.getBoundingClientRect().top);
+const isInViwe = function (part) {
+    return Math.floor(part.getBoundingClientRect().bottom);
 }
 
-//remove class from section
-const removeActiveClass = (section) => {
-    
-        section.classList.remove("your-active-class");
-    
-}
 
-//add class for section
-const addActiveClass = function(isIn,section)  {
-    if(isIn){
-        section.classList.add("your-active-class");
-    }
+//add and remove class's sections
+const myActiveClass = function(isIn,part)  {
+    isIn ?
+        part.classList.add("your-active-class"): part.classList.remove("your-active-class");
+    
 }
 
 //function for scroll
 const sectionIn = function()  {
     //know the section position
     mySection.forEach(section => {
-        const elementOffSet = offSet(section);
-        const inViewPort =  () => elementOffSet < 350 && elementOffSet >= -350; //start-up calc sections where start and end
-        removeActiveClass(section);
-        addActiveClass(inViewPort(),section);
+    //start-up calc sections where start and end
+        const inViewPort =  () => isInViwe(section) < 900 && isInViwe(section) >= 500; 
+        myActiveClass(inViewPort(),section);
     });
 }
 //event listener for window
 window.addEventListener('scroll', sectionIn);
-//scroll smooth
+//movement into sections
 newUl.addEventListener('click' ,(event) => { 
     event.preventDefault();
     if 
         (event.target.dataset.nav){
         document.getElementById(`${event.target.dataset.nav}`).scrollIntoView({behavior:"smooth"});
+        //how much time we need take to move 
         setTimeout(()=>{
             location.hash = `${event.target.dataset.nav}`;
         },400);
